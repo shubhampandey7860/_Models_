@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from app.models import *
-from django.db.models import Length
+from django.db.models.functions import Length
+from django.db.models import Q
+
 # Create your views here.
 def insert_topic(request):
     tn=input('enter topic name:')
@@ -42,13 +44,19 @@ def show_webpage_data(request):
     data = Webpage.objects.all()
     data=Webpage.objects.order_by('name') # order_by 
     data=Webpage.objects.order_by('-name') # order_by in descending order
-    data=Webpage.objects.filter(Q())
+    data=Webpage.objects.order_by('topic_name')
+    data=Webpage.objects.filter(Q(name__startswith='m')& Q(url__startswith='https'))
+    # data=Webpage.objects.all()[:3]
+   
+    
     d={'data':data}
     return render(request,'webpage.html',context=d)
 
 def show_AccessRecord_data(request):
     data = AccessRecord.objects.all()
-    d={'data':data}
+    data = AccessRecord.objects.filter(date__day='07')
+    data = AccessRecord.objects.filter(date__year__gt ='1985') # it will check which year is gt than
+    d = {'data':data}
     return render(request,'Access.html',context=d)
 
          
