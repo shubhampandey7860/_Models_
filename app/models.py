@@ -11,12 +11,11 @@ class Webpage(models.Model):
     name=models.CharField(max_length=50)
     url=models.URLField()
     
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
 class AccessRecord(models.Model):
     name=models.ForeignKey(Webpage,on_delete=models.CASCADE)
     date=models.DateField()
     
-        
     
     

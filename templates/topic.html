@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    <center>
+        <h1 style="color:green;">topic_name</h1>
+        <table style="border: 2px solid black;background:cyan;width: 200px;">
+            <tr>
+                <th style ='color:red;background:green;'>topic_name</th>
+            </tr>
+            {% for t in data %}
+               <tr>
+                <td>{{t.topic_name}}</td>
+               </tr>
+
+            {% endfor %}
+
+        </table>
+    </center>   
+</body>
+</html>
