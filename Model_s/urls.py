@@ -25,4 +25,5 @@ urlpatterns = [
     path('show_Topic_data/',show_Topic_data,name='show_Topic_data'),
     path('show_webpage_data/',show_webpage_data,name='show_webpage_data'),
     path('show_AccessRecord_data/',show_AccessRecord_data,name='show_AccessRecord_data'),
+    path('update_webpage_data/',update_webpage_data,name='update_webpage_data'),
 ]

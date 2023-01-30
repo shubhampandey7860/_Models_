@@ -59,6 +59,16 @@ def show_AccessRecord_data(request):
     d = {'data':data}
     return render(request,'Access.html',context=d)
 
+def update_webpage_data(request):
+    data=Webpage.objects.filter(name='Msdhoni').update(name='Virat Kohali')
+    T=Topic.objects.get_or_create(topic_name='chess')[0]
+    T.save()
+    data=Webpage.objects.update_or_create(name='Major Dhyanchandra',defaults={'topic_name':T,'name':'Major Dhyanchandra','url':'http://majordhyanchandra.com'})
+    data=Webpage.objects.all()
+    d={'data':data}
+    return render(request,'webpage.html',context=d)
+     
+
          
     
 
